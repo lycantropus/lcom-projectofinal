@@ -144,7 +144,7 @@ void menuPrincipal(unsigned char *table)   //menu principal do programa
 	clear_screen(BACKGROUNDCOLOR, base);
 	drawMenuBorders("Jogo do Galo", WHITE, BACKGROUNDCOLOR, base, table);
 	drawStringAt("1 - Single Player", 90, 70, NORMAL, -1, base, table);
-	drawStringAt("2 - Multyplayer", 90, 86, NORMAL, -1, base, table);
+	drawStringAt("2 - Multiplayer", 90, 86, NORMAL, -1, base, table);
 	drawStringAt("3 - Change Resolution", 90, 102, NORMAL, -1, base, table);
 	drawStringAt("4 - Exit", 90, 118, NORMAL, -1, base, table);
 	drawStringAt("Choose one option: ", 90, 150, NORMAL, -1, base, table);
@@ -213,6 +213,7 @@ void menuPrincipal(unsigned char *table)   //menu principal do programa
 				selectMode(table);  //entra no menu de alteração de modo grafico
 				break;
 		case 4:	
+				clear_screen(0, base);
 				reinstall_asm_irq_handler(KBD_IRQ, &kbd_irq);
 				rtcEnd();
 				stop_noteRTC();

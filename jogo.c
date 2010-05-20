@@ -666,23 +666,28 @@ int processHumanMove(Sprite* fig, int player)
 		lastRtc=rtc_update; //lastRtc is used in order not to draw different numbers in the calls to drawNumber below. it can happen if a rtc update interrupt ocours while drawing
 		drawWatch(lastRtc);
 		//aqui devia entrar o rato
+		
+		
+		
+		
 		chosenPosition=scancodeToChar(queueGet(&scanCodeQueue)); //funcao scancode to char AINDA nao tem os numeros todos
 	}while(chosenPosition==NULL && rtc_update<=15);
 	//entradas provisorias pelo teclado porque ñ conseguimos por o rato a dar
 	if (chosenPosition=='1')
 	{
 		x=firstLineCoordinate/2;
-		y=firstLineCoordinate/2;
+		y=5*firstLineCoordinate/2;
 	}
 	else if (chosenPosition=='2')
 	{
 		x=3*firstLineCoordinate/2;
-		y=firstLineCoordinate/2;
+		y=5*firstLineCoordinate/2;
 	}
 	else if (chosenPosition=='3')
 	{
+		
 		x=5*firstLineCoordinate/2;
-		y=firstLineCoordinate/2;
+		y=5*firstLineCoordinate/2;
 	}
 	else if (chosenPosition=='4')
 	{
@@ -702,17 +707,17 @@ int processHumanMove(Sprite* fig, int player)
 	else if (chosenPosition=='7')
 	{
 		x=firstLineCoordinate/2;
-		y=5*firstLineCoordinate/2;
+		y=firstLineCoordinate/2;
 	}
 	else if (chosenPosition=='8')
 	{
 		x=3*firstLineCoordinate/2;
-		y=5*firstLineCoordinate/2;
+		y=firstLineCoordinate/2;
 	}
 	else if (chosenPosition=='9')
 	{
 		x=5*firstLineCoordinate/2;
-		y=5*firstLineCoordinate/2;
+		y=firstLineCoordinate/2;
 	}
 	if (rtc_update <= 15)
 		if (analysing(fig, x, y, player+1)==0) //if the move is in an non free position
