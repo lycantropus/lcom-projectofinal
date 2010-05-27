@@ -1,4 +1,4 @@
-#define BACKGROUNDCOLOR GREEN
+#define BACKGROUNDCOLOR BLUE
 #define NORMAL (RED_FOREG | GREEN_FOREG | BLUE_FOREG)
 #define BLUE_FOREG  (1 << 0)  ///< Foreground blue bit
 #define GREEN_FOREG (1 << 1)  ///< Foreground green bit

@@ -96,7 +96,7 @@ int checks()  //vai verificar o estado do jogo, returna: 1- Winner 1; 2- Winner 
 	return -1;
 }
 
-int playComputer() //IA do jogo implementada... Por agora esta isto, depois eu implemento melhor...
+int playComputer() //IA do jogo implementada...
 {
 	if (board[4].occupation == 0)  //joga na posição inicial se tiver livre
 	{
@@ -392,7 +392,7 @@ int playComputer() //IA do jogo implementada... Por agora esta isto, depois eu i
 }
 	
 
-int analysing(Sprite *fig, int x, int y, int player)  //verifika o qudranate do clique do rato e desenha la a respectiva imagem 
+int analysing(Sprite *fig, int x, int y, int player)  //verifika o quadranate do clique do rato e desenha la a respectiva imagem 
                                                         //retorna true se fez o planeado, false se a posição ja tiver ocupada e -1 se ñ tiver sido klicado um pixel valido
 {
     int i;
@@ -666,10 +666,6 @@ int processHumanMove(Sprite* fig, int player)
 		lastRtc=rtc_update; //lastRtc is used in order not to draw different numbers in the calls to drawNumber below. it can happen if a rtc update interrupt ocours while drawing
 		drawWatch(lastRtc);
 		//aqui devia entrar o rato
-		
-		
-		
-		
 		chosenPosition=scancodeToChar(queueGet(&scanCodeQueue)); //funcao scancode to char AINDA nao tem os numeros todos
 	}while(chosenPosition==NULL && rtc_update<=15);
 	//entradas provisorias pelo teclado porque ñ conseguimos por o rato a dar
@@ -685,7 +681,6 @@ int processHumanMove(Sprite* fig, int player)
 	}
 	else if (chosenPosition=='3')
 	{
-		
 		x=5*firstLineCoordinate/2;
 		y=5*firstLineCoordinate/2;
 	}
@@ -708,14 +703,16 @@ int processHumanMove(Sprite* fig, int player)
 	{
 		x=firstLineCoordinate/2;
 		y=firstLineCoordinate/2;
+		
 	}
 	else if (chosenPosition=='8')
-	{
+	{	
 		x=3*firstLineCoordinate/2;
 		y=firstLineCoordinate/2;
+		
 	}
 	else if (chosenPosition=='9')
-	{
+	{	
 		x=5*firstLineCoordinate/2;
 		y=firstLineCoordinate/2;
 	}

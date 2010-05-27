@@ -189,68 +189,16 @@ read_kbc: data=fa
  
 int kbc_init(int debug);
 
-void mouse_disable(void);
-
-/** Write 'data' to the command register, returning 0 for OK or -1 on
- * timeout.
- * 
- * Uses write_kbc().
- */
-int write_kbc_cmd(unsigned data);
-
-/** Write 'data' to command register, followed by an argument on
-data register.
-
-Uses write_kbc_cmd().
-*/
-int write_kbc_cmd_arg(unsigned data, unsigned arg);
-
-/** Returns 1 if a DOS mouse driver is installed, 0 if not.
- *  
- * Needed to know if a DOS mouse driver is installed in order
- *  to reinstall it at program end.
- * 
- */
-int has_DOS_mouse_ISR();
   
 /** Write 'data' to the data register, returning ACK, Error or -1 on timeout.
  *
  * If a Resend reply is received from the KBC, it retries up to 3 times to
  * write the data.
  *
- * Uses write_kbc() and read_kbc().
+ * Uses write_kbc() and read_kbc()
  */
-int write_kbc_data(unsigned data);
+int  write_kbc_data( unsigned data);
 
-/** Write 'data' to data register, followed by an argument on
-data register.
-
-Uses write_kbc_data().
-*/
-int write_kbc_data_arg(unsigned data, unsigned arg);
-
-/** Send 'cmd' to the mouse, prefacing it with the WriteMouse command
- * to the command register.
- *
- * If a Resend reply is received from the KBC, it retries up to 3 times to
- * write 'cmd', resending the whole sequence.
- *
- * Uses write_kbc_cmd(), write_kbc() and read_kbc().
- */ 
-int write_aux(unsigned cmd);
-
-/** Send 'cmd' to the mouse, followed by an argument to the mouse too.
-
-Uses write_aux().
-*/
-int write_aux_arg(unsigned cmd, unsigned arg);
-
-/** Returns the data read a the data register.
-*
-*  Waits for OBF on status register up to KBC_TIMEOUT milliseconds,
-*  then reads and returns the data read at the data register. Returns
-*  -1 on timeout or transmission error.
-*/
 
 /** Returns the data read a the data register.
 *
